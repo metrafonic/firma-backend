@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the basic API information page, here you can find the methods available for use. Uses JSON.
+  h2 HTTP Methods:
+  #userList
+    table
+      thead
+          tr
+              th HTTP Method
+              th URI
+              th Description
+      tbody
+          tr
+              td GET
+              td /api/ansatt
+              td Get list of all workers
+    h1 User configuration:
+    p (Soon to be) automated generation of the configuration located in conf/config.js
+    p Here you will find configuration settings like DB connection.
+    h2 Databse info:
+    table
+      thead
+          tr
+              th User
+              th Password
+              th Database
+      tbody
+          tr
+              td=dbinfo.user
+              td=dbinfo.password
+              td=dbinfo.connectString
