@@ -18,8 +18,11 @@ sudo docker build -t metrafonic/firma-backend .
 ```
 
 ## Running & Configuration
-By default the app will run on port 3000
+By default the app will run on port 3000.
+
 DB settings MUST BE SET in /conf/config.js
+
+Check current config in http://localhost:3000/api
 
 ## API usage
 Up to date info can be found on http://localhost:3000/api
