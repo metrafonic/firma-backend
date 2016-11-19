@@ -15,12 +15,27 @@ block content
       tbody
           tr
               td GET
-              td /api/ansatt[ID]
-              td Get list of all workers. the optional ID will display the selected user.
+              td /api/ansatt
+              td Get list of all employees.
           tr
               td GET
-              td /api/prosjekt/[ID]
-              td Get list of all projects, the optional ID will display the selected project.
+              td /api/kunder
+              td Get list of all clients.
+          tr
+              td GET
+              td /api/oppdrag
+              td Get list of all projects that the employees are working on.
+          tr
+              td GET
+              td /api/prosjekt
+              td Get list of all projects.
+          tr
+              td GET
+              td /api/timer
+              td Get punchcard system
+    h3 Filtering queries:
+    p It is possible to filter all these results with a standard query. Any of the returned keys can be used to filter.
+    p For example http://localhost:3000/api/ansatt?ansattnr=1000&etternavn=Greg
     h1 User configuration:
     p (Soon to be) automated generation of the configuration located in conf/config.js
     p Here you will find configuration settings like DB connection.

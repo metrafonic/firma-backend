@@ -7,4 +7,6 @@ config.connAttrs = {
     "connectString": "localhost/XE"
 };
 
+config.webport = 3000;
+
 module.exports = config;

@@ -4,6 +4,12 @@ block content
   h1= title
   b Laget av Mathias Hedberg
   p Velkommen to #{title}. Dette er et system for håndtering av brukere, prosjekter, kunder, timeregistrering og mye mere
+  p før man setter igang er det viktig å sjekke at konfigurasjonsfilen ved conf/confi.js har blitt tilpasset oracle databasen.
+  h3 Initaliser DB
+  p Dersom dette er første gang man kjører systemet, må databasen fylles med tabeller, klikk på linken under for å iverksette dette.
+  a(href="/initdb") Initialiser database
+  h3 API
+  p RESR APIen gir mulighet for skriving og lesing av data.
   a(href="/api") Se på API info
   h3 Android App
-  p Planen videre etter denne er klar, er å lage en android app som kobler til dette grensesnittet. Dette vil være ganske enkelt når APIen er klar, da vil vanlige REST spørringer med JSON fungere fint. 
+  p Planen videre etter denne er klar, er å lage en android app som kobler til dette grensesnittet. Dette vil være ganske enkelt når APIen er klar, da vil vanlige REST spørringer med JSON fungere fint.

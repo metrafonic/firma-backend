@@ -28,7 +28,7 @@ a {
 			background:#EEE;
 			font-weight:600;
 			padding:10px 20px;
-			text-align:center;
+			text-align:left;
 		}
 		#userList table tbody {
 			padding:0; margin:0;
@@ -38,7 +38,7 @@ a {
 			#userList table td {
 				background:#FFF;
 				padding:5px 10px;
-				text-align:center;
+				text-align:left;
 			}
 
 #userInfo {
