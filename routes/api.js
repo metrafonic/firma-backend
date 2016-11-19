@@ -1,8 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var oracledb = require('oracledb');
-var config = require('../conf/config');
+var oraclerun = require('../functions/oraclerun');
 
+
+var cb1 = function (req, res, next) {
+  sqlline = "SELECT " + req.params.c + " FROM ANSATT";
+  console.log(req.params)
+  console.log(req.params.c)
+  next()
+}
+
+router.get('/example/:c', [cb1, oraclerun]);
 
 
 /* GET api info */
@@ -13,45 +21,5 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET users listing. */
-router.get('/ansatt', function(req, res, next) {
-  oracledb.getConnection(config.connAttrs, function (err, connection) {
-      if (err) {
-          // Error connecting to DB
-          res.set('Content-Type', 'application/json');
-          res.status(500).send(JSON.stringify({
-              status: 500,
-              message: "Error connecting to DB",
-              detailed_message: err.message
-          }));
-          return;
-      }
-
-      connection.execute("SELECT * FROM ANSATT", {}, {
-          outFormat: oracledb.OBJECT // Return the result as Object
-      }, function (err, result) {
-          if (err) {
-              res.set('Content-Type', 'application/json');
-              res.status(500).send(JSON.stringify({
-                  status: 500,
-                  message: "Error getting the user profile",
-                  detailed_message: err.message
-              }));
-          } else {
-              res.contentType('application/json').status(200);
-              res.send(JSON.stringify(result.rows));
-          }
-          // Release the connection
-          connection.release(
-              function (err) {
-                  if (err) {
-                      console.error(err.message);
-                  } else {
-                      console.log("GET /user_profiles : Connection released");
-                  }
-              });
-      });
-  });
-});
 
 module.exports = router;
