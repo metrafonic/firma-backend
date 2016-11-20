@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var config = require('../conf/config');
 var oraclerun = require('../functions/oraclerun');
-var unirest = require('unirest');
 var waterfall = require('async-waterfall');
 var Client = require('node-rest-client').Client;
 
