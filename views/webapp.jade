@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  #userList
+    h1 Web App Demo
+    div
+      h3 Ansatte:
+      table
+        thead
+          tr
+            th ANSATTNR
+            th Fornavn
+            th Etternavn
+        tbody
+          each post, i in ansatt
+            tr
+              td
+                a(href='/api/ansatt/?ANSATTNR=' + post.ANSATTNR) #{post.ANSATTNR}
+              td=post.FORNAVN
+              td=post.ETTERNAVN
+      h3 Kunder:
+      table
+        thead
+          tr
+            th KUNDE_ID
+            th Kunde
+            th Addresse
+        tbody
+          each post, i in kunder
+            tr
+              td
+                a(href='/api/kunder/?KUNDE_ID=' + post.KUNDE_ID) #{post.KUNDE_ID}
+              td=post.KUNDE_NAVN
+              td=post.ADDRESSE
+      h3 Oppdrag:
+      table
+        thead
+          tr
+            th ANSATTNR
+            th Prosjektkode
+            th Fra dato
+            th Til dato
+        tbody
+          each post, i in oppdrag
+            tr
+              td
+                a(href='/api/oppdrag/?ANSATTNR=' + post.ANSATTNR) #{post.ANSATTNR}
+              td
+                a(href='/api/prosjekt/?PROSJKODE=' + post.PROSJEKTKODE) #{post.PROSJEKTKODE}
+              td=post.FRA_DAG
+              td=post.TIL_DAG
+      h3 Prosjekter:
+      table
+        thead
+          tr
+            th Prosjektkode
+            th Navn
+            th Leder
+            th Kundenr
+        tbody
+          each post, i in prosjekter
+            tr
+              td
+                a(href='/api/prosjekter/?prosjkode=' + post.PROSJKODE) #{post.PROSJKODE}
+              td=post.PNAVN
+              td
+                a(href='/api/ansatt/?ansattnr=' + post.LEDER) #{post.LEDER}
+              td=post.KUNDENR
