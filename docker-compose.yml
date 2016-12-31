@@ -1,0 +1,15 @@
+version: '2'
+services:
+  firma-backednd:
+    build: . 
+    ports: 
+      - 3000:3000
+    links:
+      - oracle
+  
+  oracle:
+    image: wnameless/oracle-xe-11g
+    environment:
+      - "ORACLE_ALLOW_REMOTE=true"
+    volumes:
+      - ./dep/database.ddl:/docker-entrypoint-initdb.d/init.sql

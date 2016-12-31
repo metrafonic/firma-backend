@@ -2,9 +2,9 @@
 var config = {};
 
 config.connAttrs = {
-    "user": "firma-backend",
-    "password": "firma-backend",
-    "connectString": "localhost/XE"
+    "user": "system",
+    "password": "oracle",
+    "connectString": "oracle/XE"
 };
 
 config.webport = 3000;
